@@ -1788,11 +1788,13 @@ function Set_Setting()
 end
 
 function Close_UI()
-    wait(10)
-    local N=game:GetService("VirtualInputManager")
-    N:SendKeyEvent(true,"P",false,game)
-    wait(0.1)
-    N:SendKeyEvent(false,"P",false,game)
+    task.spawn(function()
+        wait(10)
+        local N=game:GetService("VirtualInputManager")
+        N:SendKeyEvent(true,"P",false,game)
+        wait(0.1)
+        N:SendKeyEvent(false,"P",false,game)
+    end)
 end
 Close_UI()
 
