@@ -844,8 +844,8 @@ end
 local function DeleteMapSec()
 
     DelMapConfig2:Cheat("Button", "Redeem All Code", function()
-        print(Settings.redeemc)
         Reedemcode()
+        print(Settings.redeemc)
     end)
 
     DelMapConfig2:Cheat("Button", "Leave To Lobby", function()
@@ -1689,11 +1689,11 @@ function autoload()
     pcall(function()
         local exec = tostring(identifyexecutor())
         if exec == "Synapse X" and Settings.AutoLoadScript then
-            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures_v2__Beta.lua'))()")
+            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/bysdg1/Chilling01/main/README.md'))()")
         elseif exec ~= "Synapse X" and Settings.AutoLoadScript then
-            queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures_v2__Beta.lua'))()")
+            queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/bysdg1/Chilling01/main/README.md'))()")
         elseif exec ~= "Synapse X" and Settings.AutoLoadScript then
-            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures_v2__Beta.lua'))()")
+            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/bysdg1/Chilling01/main/README.md'))()")
         end
     end)
 end
@@ -1703,7 +1703,7 @@ if Settings.AutoLoadScript then
 end
 
 function autoload2()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures_v2__Beta.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/bysdg1/Chilling01/main/README.md'))()
 end
 
 if Settings.refarmc then
@@ -1786,6 +1786,15 @@ function Set_Setting()
         end
     end
 end
+
+function Close_UI()
+    wait(10)
+    local N=game:GetService("VirtualInputManager")
+    N:SendKeyEvent(true,"P",false,game)
+    wait(0.1)
+    N:SendKeyEvent(false,"P",false,game)
+end
+Close_UI()
 
 ----------------------------------------------
 ------------ /\/\/\/\/\/\/\/\/\ --------------
@@ -6185,7 +6194,7 @@ function Reedemcode()
     codes = {"TWOMILLION","subtomaokuma","CHALLENGEFIX","GINYUFIX","RELEASE","SubToKelvingts","SubToBlamspot","KingLuffy","TOADBOIGAMING","noclypso","FictioNTheFirst","GOLDENSHUTDOWN","GOLDEN"
     ,"SINS2","subtosnowrbx","Cxrsed","subtomaokuma","VIGILANTE","HAPPYEASTER","ENTERTAINMENT","DRESSROSA","BILLION","MADOKA","AINCRAD","ANNIVERSARY","OVERLORD","SupperTierMagicSoon",
     "NEWCODE0819"}
-        for _, v in pairs(codes) do
+    for _, v in pairs(codes) do
         pcall(function() game:GetService("ReplicatedStorage").endpoints["client_to_server"]["redeem_code"]:InvokeServer(v)()    end) 
     end
 end
