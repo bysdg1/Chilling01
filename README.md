@@ -2579,6 +2579,7 @@ coroutine.resume(coroutine.create(function()
         local GameFinished = game:GetService("Workspace"):WaitForChild("_DATA"):WaitForChild("GameFinished")
         GameFinished:GetPropertyChangedSignal("Value"):Connect(function()
             print("Changed", GameFinished.Value == true)
+            Timeout = 0
             if GameFinished.Value == true then
                 repeat task.wait() until  game:GetService("Players").LocalPlayer.PlayerGui.ResultsUI.Enabled == true
                 warn("Wait next or leave")
@@ -2589,7 +2590,14 @@ coroutine.resume(coroutine.create(function()
                         if GLD().id == "namek_infinite" then
                             local a={[1]="replay"} game:GetService("ReplicatedStorage").endpoints.client_to_server.set_game_finished_vote:InvokeServer(unpack(a))
                             local a={[1]="replay"} game:GetService("ReplicatedStorage").endpoints.client_to_server.set_game_finished_vote:InvokeServer(unpack(a))
-                            warn("Replay...")
+                            warn("Replay...", Timeout)
+                            Timeout = Timeout + 1
+                            if Timeout >= 50 then 
+                                wait(.5)
+                                game:GetService("TeleportService"):Teleport(8304191830, game.Players.LocalPlayer)
+                                Teleport()
+                                warn("Returning to lobby...")
+                            end
                         end
 
                         if GLD().id ~= "namek_level_6" and GLD().id ~= "namek_infinite" then
