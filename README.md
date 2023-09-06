@@ -2590,7 +2590,6 @@ coroutine.resume(coroutine.create(function()
                         if GLD().id == "namek_infinite" then
                             local a={[1]="replay"} game:GetService("ReplicatedStorage").endpoints.client_to_server.set_game_finished_vote:InvokeServer(unpack(a))
                             local a={[1]="replay"} game:GetService("ReplicatedStorage").endpoints.client_to_server.set_game_finished_vote:InvokeServer(unpack(a))
-                            Settings.AutoSell = false
                             warn("Replay...", Timeout1)
                             Timeout1 = Timeout1 + 1
                             if Timeout1 >= 50 then 
@@ -2617,8 +2616,7 @@ coroutine.resume(coroutine.create(function()
                         if GLD().id == "namek_level_6" then
                             Settings.SelectedLevel = "namek_infinite"
                             Settings.Difficulty = "Hard" -- Normal
-                            Settings.autoQuit = true
-                            Settings.AutoSell = false
+                            Settings.AutoSell = true
                             Settings.AutoSellWave = 10
                             saveSettings()
                             wait(.5)
